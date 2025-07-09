@@ -1,7 +1,7 @@
-import Canvas from './component/Canvas'
+import Layout from './component/Layout'
 
 function App() {
-  return <Canvas />
+  return <Layout />
 }
 
 export default App
