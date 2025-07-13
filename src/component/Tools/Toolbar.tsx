@@ -31,7 +31,7 @@ const Toolbar = () => {
   };
 
   return (
-    <div className="w-[400px] absolute bottom-8 right-8 rounded-full flex flex-col gap-2 p-2 bg-white border">
+    <div className="w-[400px] z-10 absolute bottom-8 right-8 rounded-full flex flex-col gap-2 p-2 bg-white border">
       {tools.map((tool) => {
         const IconComponent = iconMap[tool.icon as keyof typeof iconMap];
 

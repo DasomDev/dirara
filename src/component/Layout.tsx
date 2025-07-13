@@ -6,7 +6,7 @@ const Layout = () => {
     <div className="w-screen h-screen flex">
       <Toolbar />
       <div className="flex-1 overflow-hidden">
-        <Canvas width={window.innerWidth - 80} height={window.innerHeight} />
+        <Canvas width={window.innerWidth } height={window.innerHeight} />
       </div>
     </div>
   );

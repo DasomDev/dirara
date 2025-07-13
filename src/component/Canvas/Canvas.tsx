@@ -176,7 +176,7 @@ const Canvas = ({ width, height }: CanvasProps) => {
         ref={canvasRef}
         width={width}
         height={height}
-        className="border border-gray-300 cursor-crosshair"
+        className="border hidden border-gray-300 cursor-crosshair"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
