@@ -1,71 +1,22 @@
-# React + TypeScript + Vite
+## 🧠 Canvas-based Whiteboard (React Migration in Progress)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a real-time whiteboard application originally built with Vue.js, now being rewritten in **React** and **TypeScript** to explore scalable frontend architecture.
 
-Currently, two official plugins are available:
+### ✨ Key Features
+- **Interactive Canvas**: Drawing, dragging, and real-time object manipulation using HTML5 Canvas
+- **Event Handling**: Custom zoom/pan/selection logic with precise mouse and keyboard events
+- **Performance Focused**: Efficient re-rendering strategies for large canvas states
+- **State Management**: Migrating from Vue + Pinia to **React + Recoil** (or Zustand)
+- **Component Design**: Modular React component structure for maintainability and scalability
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🚀 Why This Project Matters
+As a frontend engineer with a background in Vue-based authoring tools, I’m now applying that expertise in a React environment. This project demonstrates:
+- Strong understanding of **complex UI interactions**
+- Ability to **rebuild and refactor** production-level features across frameworks
+- Ongoing exploration of **modern frontend tools** like TypeScript, Recoil, and Vite
 
-## Expanding the ESLint configuration
+> 🛠️ Built with: React · TypeScript · Canvas API · Recoil · Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# dirara
-Things want to move it move it 
+> 🎯 Vue.js로 개발했던 실시간 캔버스 화이트보드 프로젝트를 React 기반으로 리팩토링하고 있습니다.  
+> 실무 경험에서 쌓은 복잡한 UI 처리 능력을 React로 재구현하며, 프레임워크 전환과 성능 최적화에 대한 역량을 키워가는 중입니다.
