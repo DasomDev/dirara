@@ -12,7 +12,7 @@ export const BASIC_TOOLS: Tool[] = [
   {
     id: "select",
     name: "선택",
-    icon: "MousePointer2",
+    icon: "mouse-pointer-2",
     category: "selection",
     isActive: true,
   },
@@ -25,13 +25,13 @@ export const BASIC_TOOLS: Tool[] = [
   {
     id: "text",
     name: "텍스트",
-    icon: "text-type",
+    icon: "type",
     category: "text",
   },
   {
     id: "diagram",
     name: "도형",
-    icon: "diagram",
+    icon: "shapes",
     category: "shape",
   },
 ];

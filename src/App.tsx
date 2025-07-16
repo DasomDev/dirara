@@ -1,7 +1,12 @@
+import { RecoilRoot } from 'recoil';
 import Layout from './component/Layout'
 
 function App() {
-  return <Layout />
+  return (
+    <RecoilRoot>
+      <Layout />
+    </RecoilRoot>
+  );
 }
 
 export default App

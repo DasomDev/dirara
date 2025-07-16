@@ -1,52 +1,46 @@
-import { useState } from "react";
-import { BASIC_TOOLS, setActiveTool } from "../../interface/tools";
-import type { Tool } from "../../interface/tools";
+import { BASIC_TOOLS } from "../../interface/tools";
 import {
   CursorArrowRaysIcon,
   PaintBrushIcon,
-  DocumentTextIcon,
   RectangleStackIcon,
-  CircleStackIcon,
-  MinusIcon,
-  PhotoIcon,
 } from "@heroicons/react/24/outline";
 
-import { MousePointer2 } from "lucide-react";
+import { Shapes, Type, MousePointer2 } from "lucide-react";
+import { useRecoilState } from "recoil";
+import { toolModeAtom } from "../../store/atoms";
 
 // 아이콘 매핑
 const iconMap = {
-  "cursor-arrow-rays": MousePointer2,
+  "mouse-pointer-2": MousePointer2,
   "paint-brush": PaintBrushIcon,
-  "text-type": DocumentTextIcon,
+  "type": Type,
   "rectangle-stack": RectangleStackIcon,
-  "circle-stack": CircleStackIcon,
+  "shapes": Shapes,
 };
 
 const Toolbar = () => {
-  const [tools, setTools] = useState<Tool[]>(BASIC_TOOLS);
-
+  // const [tools, setTools] = useState<Tool[]>(BASIC_TOOLS);
+  const [toolMode, setToolMode] = useRecoilState(toolModeAtom);
   const handleToolClick = (toolId: string) => {
-    const updatedTools = setActiveTool(toolId);
-    setTools(updatedTools);
+    setToolMode(toolId);
   };
 
   return (
-    <div className="w-[400px] z-10 absolute bottom-8 right-8 rounded-full flex flex-col gap-2 p-2 bg-white border">
-      {tools.map((tool) => {
+    <div className="z-10 absolute bottom-8 left-1/2 -translate-x-1/2 rounded-lg shadow-lg flex gap-2 p-2 bg-white border">
+      {BASIC_TOOLS.map((tool) => {
         const IconComponent = iconMap[tool.icon as keyof typeof iconMap];
-
         return (
           <button
             key={tool.id}
             onClick={() => handleToolClick(tool.id)}
-            className={`p-2 rounded-lg transition-colors ${
-              tool.isActive
+            className={`p-2 rounded-lg box-border w-[38px] transition-colors flex items-center gap-2 ${
+              toolMode === tool.id
                 ? "bg-blue-100 text-blue-600 border border-blue-300"
                 : "hover:bg-gray-100 text-gray-600"
             }`}
           >
-            {tool.name}
-            {/* {IconComponent && <IconComponent className="w-5 h-5" />} */}
+            {IconComponent && <IconComponent className="w-5 h-5" />}
+            {/* {tool.name} */}
           </button>
         );
       })}
