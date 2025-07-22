@@ -13,9 +13,11 @@ interface Viewport {
 
 const Canvas = ({ width, height }: CanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
   const [viewport, setViewport] = useState<Viewport>({ x: 0, y: 0, zoom: 1 });
   const [isDragging, setIsDragging] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
+
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
   const [lastDrawPos, setLastDrawPos] = useState({ x: 0, y: 0 });
 
@@ -132,6 +134,7 @@ const Canvas = ({ width, height }: CanvasProps) => {
   };
 
   const handleWheel = (e: React.WheelEvent<HTMLCanvasElement>) => {
+    console.log('handleWheel');
     e.preventDefault();
     
     const canvas = canvasRef.current;
@@ -171,12 +174,14 @@ const Canvas = ({ width, height }: CanvasProps) => {
   }, []);
 
   return (
+    
     <div className="relative">
+      {/* 캔버스 컴포넌트 */}
       <canvas
         ref={canvasRef}
         width={width}
         height={height}
-        className="border hidden border-gray-300 cursor-crosshair"
+        className="border border-gray-300 cursor-crosshair"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -186,7 +191,7 @@ const Canvas = ({ width, height }: CanvasProps) => {
       />
       
       {/* 줌 컨트롤 */}
-      <div className="absolute top-4 right-4 flex flex-col gap-2">
+      {/* <div className="absolute top-4 right-4 flex flex-col gap-2">
         <button
           onClick={() => setViewport(prev => ({ ...prev, zoom: Math.min(5, prev.zoom * 1.2) }))}
           className="w-8 h-8 bg-white border border-gray-300 rounded shadow hover:bg-gray-50"
@@ -205,7 +210,7 @@ const Canvas = ({ width, height }: CanvasProps) => {
         >
           ⌂
         </button>
-      </div>
+      </div> */}
 
       {/* 뷰포트 정보 */}
       <div className="absolute bottom-4 left-4 bg-white border border-gray-300 rounded px-2 py-1 text-xs">

@@ -3,7 +3,7 @@ export interface Tool {
   id: string;
   name: string;
   icon: string;
-  category: "drawing" | "selection" | "text" | "shape" | "media";
+  category: "drawing" | "selection" | "text" | "shape";
   isActive?: boolean;
 }
 

@@ -1,6 +1,5 @@
 import { BASIC_TOOLS } from "../../interface/tools";
 import {
-  CursorArrowRaysIcon,
   PaintBrushIcon,
   RectangleStackIcon,
 } from "@heroicons/react/24/outline";
@@ -8,6 +7,8 @@ import {
 import { Shapes, Type, MousePointer2 } from "lucide-react";
 import { useRecoilState } from "recoil";
 import { toolModeAtom } from "../../store/atoms";
+
+import ColorPalette from "./ColorPalette";
 
 // 아이콘 매핑
 const iconMap = {
@@ -21,8 +22,10 @@ const iconMap = {
 const Toolbar = () => {
   // const [tools, setTools] = useState<Tool[]>(BASIC_TOOLS);
   const [toolMode, setToolMode] = useRecoilState(toolModeAtom);
+  
   const handleToolClick = (toolId: string) => {
     setToolMode(toolId);
+    console.log(toolMode);
   };
 
   return (
@@ -40,10 +43,11 @@ const Toolbar = () => {
             }`}
           >
             {IconComponent && <IconComponent className="w-5 h-5" />}
-            {/* {tool.name} */}
+            {/* {toolMode} */}
           </button>
         );
       })}
+      <ColorPalette />
     </div>
   );
 };
