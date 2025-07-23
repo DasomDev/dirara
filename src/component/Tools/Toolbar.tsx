@@ -9,23 +9,29 @@ import { useRecoilState } from "recoil";
 import { toolModeAtom } from "../../store/atoms";
 
 import ColorPalette from "./ColorPalette";
+import { useState } from "react";
 
 // 아이콘 매핑
 const iconMap = {
   "mouse-pointer-2": MousePointer2,
   "paint-brush": PaintBrushIcon,
-  "type": Type,
+  type: Type,
   "rectangle-stack": RectangleStackIcon,
-  "shapes": Shapes,
+  shapes: Shapes,
 };
 
 const Toolbar = () => {
   // const [tools, setTools] = useState<Tool[]>(BASIC_TOOLS);
   const [toolMode, setToolMode] = useRecoilState(toolModeAtom);
-  
+  const [isShowColorPalette, setIsShowColorPalette] = useState(false);
+
   const handleToolClick = (toolId: string) => {
     setToolMode(toolId);
-    console.log(toolMode);
+    if (toolId === "pen") {
+      setIsShowColorPalette((prev) => !prev);
+    } else {
+      setIsShowColorPalette(false);
+    }
   };
 
   return (
@@ -47,7 +53,7 @@ const Toolbar = () => {
           </button>
         );
       })}
-      <ColorPalette />
+      {isShowColorPalette && <ColorPalette />}
     </div>
   );
 };
